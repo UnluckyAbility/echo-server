@@ -18,7 +18,7 @@ namespace TestClient
 					var requestId = Guid.NewGuid();
 
 					using var endpointSocket = new Socket(SocketType.Stream, ProtocolType.Tcp);
-					var ipe = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 11112);
+					var ipe = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 11111);
 					await endpointSocket.ConnectAsync(ipe);
 
 					var rnd = new Random();

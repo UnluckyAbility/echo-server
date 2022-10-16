@@ -6,11 +6,11 @@ namespace AsioEchoServer
 	{
 		public Task Task { get; }
 
-		private readonly SocketListener _socketListener;
+		private readonly SocketDispatcher _socketListener;
 		private readonly RequestManager _requestManager;
 		private readonly CancellationToken _token;
 
-		public EchoService(SocketListener socketListener, RequestManager requestManager, CancellationToken token = default)
+		public EchoService(SocketDispatcher socketListener, RequestManager requestManager, CancellationToken token = default)
 		{
 			_socketListener = socketListener;
 			_requestManager = requestManager;

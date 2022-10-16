@@ -4,7 +4,7 @@ using System.Net.Sockets;
 
 namespace AsioEchoServer
 {
-	internal class SocketListener
+	internal class SocketDispatcher
 	{
 		public Task Task { get; }
 
@@ -12,7 +12,7 @@ namespace AsioEchoServer
 		private ConcurrentQueue<Socket> _pendingSockets { get; } = new ConcurrentQueue<Socket>();
 		private readonly CancellationToken _token;
 
-		public SocketListener(int port, CancellationToken token = default)
+		public SocketDispatcher(int port, CancellationToken token = default)
 		{
 			_listener = new TcpListener(IPAddress.Any, port);
 			_listener.Start();
