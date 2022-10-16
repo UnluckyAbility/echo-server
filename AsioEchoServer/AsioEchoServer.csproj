@@ -8,11 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".dockerignore" />
     <None Remove="Dockerfile" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Dockerfile" />
   </ItemGroup>
 
 </Project>
