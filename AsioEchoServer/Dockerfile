@@ -4,7 +4,6 @@ COPY . .
 RUN dotnet restore
 
 WORKDIR /source
-RUN ls -la
 RUN dotnet publish -c release -o /stage --no-restore
 
 FROM mcr.microsoft.com/dotnet/runtime:6.0
