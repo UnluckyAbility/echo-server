@@ -2,10 +2,10 @@
 {
 	internal class ConfigurationService
 	{
-		private const string ServerPortVar = "ECHO_SERVICE_PORT";
+		private const string ServerPortVar = "ECHO_SERVER_PORT";
 		private const int DefaultPort = 11111;
 
-		private const string TaskPollingIntervalVar = "ECHO_SERVICE_POLING_INTERVAL_MS";
+		private const string TaskPollingIntervalVar = "ECHO_SERVER_POLING_INTERVAL_MS";
 		private const int DefaultTaskPollingInterval = 32;
 
 		public Config GetConfiguration()
