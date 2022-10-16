@@ -9,7 +9,7 @@ RUN dotnet publish -c release -o /stage --no-restore
 
 FROM mcr.microsoft.com/dotnet/runtime:6.0
 ENV ECHO_SERVER_PORT=11111
-EXPOSE ${ECHO_SERVER_PORT} 
+EXPOSE ${ECHO_SERVER_PORT}
 WORKDIR /app
 COPY --from=build /stage ./
 ENTRYPOINT ["dotnet", "AsioEchoServer.dll"]
