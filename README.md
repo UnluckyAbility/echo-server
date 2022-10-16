@@ -5,6 +5,8 @@ No restrictions and control of external resources, such as sockets. The server w
 
 One-by-one task completion handling leads to an increased load on the GC.
 
+Fixed maximum response size.
+
 Obvious architectural issues.
 
 # Docker container environment variables
