@@ -12,4 +12,4 @@ Obvious architectural issues.
 # Docker container environment variables
 ECHO_SERVER_PORT - port to listen, defaults to 11111
 
-ECHO_SERVER_POLING_INTERVAL_MS - time interval to wait in a case of no completed tasks is present in RequestManager
+ECHO_SERVER_POLING_INTERVAL_MS - time interval to wait in a case of no completed tasks is present in RequestManager. Defaults to 32 ms.
