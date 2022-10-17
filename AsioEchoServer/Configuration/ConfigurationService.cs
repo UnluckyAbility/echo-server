@@ -6,7 +6,7 @@
 		private const int DefaultMaxSocketCount = 500;
 
 		private const string MaxThreadCountVar = "ECHO_SERVER_MAX_THREAD_COUNT";
-		private const int DefaultMaxThreadCount = 50;
+		private const int DefaultMaxThreadCount = 500;
 
 		private const string ServerPortVar = "ECHO_SERVER_PORT";
 		private const int DefaultPort = 11111;
@@ -39,8 +39,6 @@
 		private static int GetBufferSize() => GetIntSystemVariable(SocketBufferSizeVar) ?? DefaultSocketBufferSize;
 
 		private static int GetInterval() => GetIntSystemVariable(TaskPollingIntervalVar) ?? DefaultTaskPollingInterval;
-
-
 
 		private static int? GetIntSystemVariable(string variable)
 		{

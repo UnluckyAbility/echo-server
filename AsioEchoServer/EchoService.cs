@@ -26,7 +26,7 @@ namespace AsioEchoServer
 			{
 				var socket = await _socketListener.GetSocket(_token);
 				var requestId = Guid.NewGuid();
-				await _requestManager.TryAddRequest(requestId, Task.Run(async () => await EchoResponse(requestId, socket)));	
+				await _requestManager.TryAddRequest(requestId, Task.Run(async () => await EchoResponse(requestId, socket)));
 			}
 		}
 
@@ -36,8 +36,19 @@ namespace AsioEchoServer
 
 			// NOTE: Naive content handling - return back no more than fixed amount of bytes
 			var buffer = new byte[_socketBufferSize];
-			var receivedCount = await taskSocket!.ReceiveAsync(buffer, SocketFlags.None, _token);
-			await taskSocket.SendAsync(buffer, receivedCount > buffer.Length ? SocketFlags.Truncated : SocketFlags.None, _token);
+			var receivedCount = _socketBufferSize;
+
+			while (receivedCount > 0 && !_token.IsCancellationRequested)
+				try
+				{
+					receivedCount = await taskSocket.ReceiveAsync(buffer, SocketFlags.None, _token);
+					await taskSocket.SendAsync(buffer.AsMemory(0, receivedCount), receivedCount > buffer.Length ? SocketFlags.Truncated : SocketFlags.None, _token);
+				}
+				catch (SocketException)
+				{
+					break;
+				}
+
 
 			return requestId;
 		}
