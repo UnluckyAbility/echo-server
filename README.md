@@ -12,7 +12,7 @@ Obvious architectural issues.
 # Docker container environment variables
 ECHO_SERVER_MAX_SOCKET_COUNT - maximum pending sockets. Defaults to 500 sockets in queue. 
 
-ECHO_SERVER_MAX_THREAD_COUNT - maximum uncompleted requests count. Defaults to 50 simultanious requests.
+ECHO_SERVER_MAX_THREAD_COUNT - maximum uncompleted requests count. Defaults to 500 simultanious requests.
 
 ECHO_SERVER_PORT - port to listen. Defaults to 11111.
 
